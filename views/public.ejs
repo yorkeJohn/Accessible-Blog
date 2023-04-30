@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('common/head.ejs') %>
+<body class="body">
+  <%- include('common/header.ejs') %>
+  <main class="main p-3 mx-auto">
+    <div class="card">
+      <div class="card-header text-center" style="font-size: 24px;"><%= blog.BlogTitle %></div>
+      <div class="p-3 <%= !blog.BlogText ? 'text-center text-muted' : null %>">
+        <%= blog.BlogText ? blog.BlogText : 'This blog is empty' %>
+      </div>
+    </div>
+  </main>
+  <%- include('common/footer.ejs') %>
+</body>
+</html>

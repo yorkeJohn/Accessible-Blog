@@ -1,0 +1,173 @@
+/**
+* my_css.css
+* CSCI 2356 Project Group 1
+* Author: John Yorke
+*/
+
+/* body styles */
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+a.link {
+  color: white;
+  text-decoration: none;
+  transition: color 200ms ease-in-out;
+}
+
+a.link:hover {
+  color: #dfdfdf;
+}
+
+/* constrain main and add bottom padding */
+.main {
+  max-width: 900px;
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 124px);
+}
+
+.logo {
+  font-size: 24px;
+}
+
+/* hidden element */
+.hide {
+  display: none;
+}
+
+/* accent colour, apply to keyboard & word bank hover */
+.accent, .hg-button:hover, .form-check-input:checked {
+  background-color: #2a5db0 !important;
+  border-color: #2a5db0 !important;
+  color: #fff !important;
+}
+
+/* accent button hover */
+button.accent:hover {
+  background-color: #224c8f !important;
+  border-color: #204785 !important;
+  color: #fff !important;
+}
+
+/* modify simple keyboard buttons */
+.hg-button {
+  height: 45px !important;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* kb button expansion */
+.hg-button:hover {
+  transform: scale(1.5);
+  z-index: 1000;
+}
+
+/* buttons with no expanding */
+.no-exp:hover {
+  transform: none !important;
+}
+
+/* allow overflow on the kb */
+.simple-keyboard {
+  overflow: visible !important;
+}
+
+/* use pointer for blog names */
+.blog-name {
+  cursor: pointer;
+}
+
+.blog-name > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* relative positioning */
+.relative {
+  position: relative;
+}
+
+/* view published blog link */
+.view-button {
+  left: calc(100% - 10ch);
+  width: max-content;
+  position: absolute;
+  cursor: pointer;
+}
+
+/* link */
+.view-button a {
+  text-decoration: none;
+}
+
+/* link hover */
+.view-button:hover a {
+  text-decoration: underline;
+}
+
+/* expand, bold, and blue for hovered blog names */
+.blog-name:hover {
+  color: #2a5db0 !important;
+  font-weight: bold !important;
+  transform: scale(1.25);
+}
+
+/* toggle switch scaling and width */
+.toggle {
+  height: 1.5em !important;
+  width: 7rem !important;
+  cursor: pointer;
+}
+
+/* width for save & cancel buttons */
+.btn-width {
+  width: 8rem !important;
+}
+
+/* tooltip wrapper */
+.tt {
+  position: relative;
+  display: inline-block;
+}
+
+/* tooltip */
+.tt .tt-text {
+  display: none;
+  width: 120px;
+  color: white;
+  background-color: #4caf50;
+  text-align: center;
+  padding: 7px 20px;
+  border-radius: 6px;
+  left: 110%;
+  transition: 0.2s all;
+}
+
+/* tooltip arrow */
+.tt .tt-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-color: transparent #4caf50 transparent transparent;
+  border-width: 5px;
+  border-style: solid;
+}
+
+/* fade animation */
+.a-opacity {
+  animation: opac 0.5s;
+}
+
+@keyframes opac {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: #ddd;
+}

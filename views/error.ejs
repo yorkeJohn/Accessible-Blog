@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('common/head.ejs') %>
+<body class="body">
+  <%- include('common/header.ejs') %>
+  <main class="main p-3 mx-auto">
+    <div class="p-3 text-center" style="font-size: 24px;"><%= statusCode %>: <%= message %></div>
+    <div class="p-3 text-center">
+      <a href="/">Return home</a>
+    </div>
+  </main>
+  <%- include('common/footer.ejs') %>
+</body>
+</html>
