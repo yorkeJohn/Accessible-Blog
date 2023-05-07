@@ -4,42 +4,35 @@
 <body>
   <%- include('common/header.ejs') %>
   <main class="main p-3 mx-auto">
-    <div class="card mb-3 text-center">
-      <!-- panel header -->
-      <div class="card-header">
-        <div class="row align-items-center">
-          <div class="col">Blog Name<span class="text-muted"> &mdash; Click to edit</span></div>
-          <div class="col">Publish Blog</div>
+    <div class="list-group mb-3">
+      <% blogs.forEach(blog => { %>
+      <div class="list-group-item d-flex justify-content-between p-3">
+        <%= blog.BlogTitle %>
+        <div class="d-flex gap-3 align-items-center">
+          <div class="form-check form-switch">
+            <small class="ms-2">Publish</small>
+            <input class="form-check-input toggle publish" type="checkbox" role="switch"
+            data-blog-id="<%= blog.BlogID %>" <%= blog.Published ? 'checked' : null %>>
+          </div>
+          <button class="btn view-link badge btn-badge rounded-pill accent" 
+          data-blog-id="<%= blog.BlogID %>" <%= !blog.Published ? 'disabled' : null %> 
+          onclick="redirectRel('/public/<%= blog.BlogID %>')">View</button>
+          <button class="btn badge btn-badge rounded-pill accent"
+          onclick="redirectRel('/editor/<%= blog.BlogID %>')">Edit</button>
         </div>
       </div>
-      <!-- blog names/edit toggles -->
-      <div class="card-body">
-        <% blogs.forEach(blog => { %>
-        <div class="row align-items-center">
-          <div class="col blog-name text-muted"><a href="/editor/<%= blog.BlogID %>"><%= blog.BlogTitle %></a></div>
-          <div class="col d-flex justify-content-center relative">
-            <div class="form-check form-switch">
-              <input class="form-check-input toggle publish" type="checkbox" role="switch"
-              data-blog-id="<%= blog.BlogID %>" <%= blog.Published ? 'checked' : null %>>
-            </div>
-          </div>
-          <div class="view-button <%= !blog.Published ? 'hide' : null %>" data-blog-id="<%= blog.BlogID %>">
-            <a href="/public/<%= blog.BlogID %>">View</a>
-          </div>
-        </div>
-        <% }) %>
-      </div>
+      <% }) %>
     </div>
     <button class="btn accent btn-width" id="new-blog">Add new blog</button>
   </main>
   <%- include('common/footer.ejs') %>
 </body>
 <script>
-$(".publish").click(function () {
+$(".publish").click(async function () {
   const id = $(this).attr('data-blog-id')
   const checked = $(this).is(':checked')
-  $.post('publish', { id: id, published: Number(checked) })
-  $(`.view-button[data-blog-id=${id}]`).toggle(checked)
+  await $.post('publish', { id: id, published: Number(checked) })
+  $(`.view-link[data-blog-id=${id}]`).attr('disabled', !checked)
 })
 $('#new-blog').click(async function () {
   await $.post('new')

@@ -5,18 +5,35 @@
 */
 
 /* body styles */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
 }
 
 a.link {
-  color: white;
+  color: inherit;
+  transition: opacity 200ms ease-in-out;
   text-decoration: none;
-  transition: color 200ms ease-in-out;
 }
 
 a.link:hover {
-  color: #dfdfdf;
+  color: inherit;
+  opacity: 0.8;
+}
+
+a.link.accent-link:hover {
+  color: #204785;
+  opacity: 1;
 }
 
 /* constrain main and add bottom padding */
@@ -33,6 +50,14 @@ a.link:hover {
 /* hidden element */
 .hide {
   display: none;
+}
+
+.v-hide {
+  visibility: hidden;
+}
+
+.badge {
+  font-weight: inherit;
 }
 
 /* accent colour, apply to keyboard & word bank hover */
@@ -94,16 +119,6 @@ button.accent:hover {
   cursor: pointer;
 }
 
-/* link */
-.view-button a {
-  text-decoration: none;
-}
-
-/* link hover */
-.view-button:hover a {
-  text-decoration: underline;
-}
-
 /* expand, bold, and blue for hovered blog names */
 .blog-name:hover {
   color: #2a5db0 !important;
@@ -111,11 +126,25 @@ button.accent:hover {
   transform: scale(1.25);
 }
 
+.form-check {
+  margin: 0;
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
 /* toggle switch scaling and width */
 .toggle {
+  margin: 0;
   height: 1.5em !important;
-  width: 7rem !important;
+  width: 5em !important;
   cursor: pointer;
+}
+
+.badge.btn-badge {
+  line-height: 1.25;
+  width: 7em;
 }
 
 /* width for save & cancel buttons */
@@ -154,20 +183,4 @@ button.accent:hover {
   border-style: solid;
 }
 
-/* fade animation */
-.a-opacity {
-  animation: opac 0.5s;
-}
 
-@keyframes opac {
-  from { opacity: 0 }
-  to { opacity: 1 }
-}
-
-.nav-link {
-  color: white;
-}
-
-.nav-link:hover {
-  color: #ddd;
-}
