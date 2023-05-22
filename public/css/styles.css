@@ -1,9 +1,21 @@
 /* styles.css */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&display=swap');
+
+:root {
+  --app-width: 1000px;
+  --blue-light: #2a5db0;
+  --blue-dark: #224c8f;
+  --green: #4caf50;
+}
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+main {
+  max-width: var(--app-width);
+  min-height: calc(100vh - 124px);
 }
 
 a {
@@ -15,121 +27,10 @@ a:hover {
   color: inherit;
 }
 
-a.link {
-  color: inherit;
-  transition: opacity 200ms ease-in-out;
-  text-decoration: none;
+.btn-width {
+  width: 10rem !important;
 }
 
-a.link:hover {
-  color: inherit;
-  opacity: 0.8;
-}
-
-a.link.accent-link:hover {
-  color: #204785;
-  opacity: 1;
-}
-
-/* constrain main and add bottom padding */
-.main {
-  max-width: 900px;
-  padding-bottom: 2rem;
-  min-height: calc(100vh - 124px);
-}
-
-.logo {
-  font-size: 24px;
-}
-
-/* hidden element */
-.hide {
-  display: none;
-}
-
-.v-hide {
-  visibility: hidden;
-}
-
-.badge {
-  font-weight: inherit;
-}
-
-/* accent colour, apply to keyboard & word bank hover */
-.accent, .hg-button:hover, .form-check-input:checked {
-  background-color: #2a5db0 !important;
-  border-color: #2a5db0 !important;
-  color: #fff !important;
-}
-
-/* accent button hover */
-button.accent:hover {
-  background-color: #224c8f !important;
-  border-color: #204785 !important;
-  color: #fff !important;
-}
-
-/* modify simple keyboard buttons */
-.hg-button {
-  height: 45px !important;
-  transition: transform 0.2s ease-in-out;
-}
-
-/* kb button expansion */
-.hg-button:hover {
-  transform: scale(1.5);
-  z-index: 1000;
-}
-
-/* buttons with no expanding */
-.no-exp:hover {
-  transform: none !important;
-}
-
-/* allow overflow on the kb */
-.simple-keyboard {
-  overflow: visible !important;
-}
-
-/* use pointer for blog names */
-.blog-name {
-  cursor: pointer;
-}
-
-.blog-name > a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* relative positioning */
-.relative {
-  position: relative;
-}
-
-/* view published blog link */
-.view-button {
-  left: calc(100% - 10ch);
-  width: max-content;
-  position: absolute;
-  cursor: pointer;
-}
-
-/* expand, bold, and blue for hovered blog names */
-.blog-name:hover {
-  color: #2a5db0 !important;
-  font-weight: bold !important;
-  transform: scale(1.25);
-}
-
-.form-check {
-  margin: 0;
-}
-
-.form-check-input {
-  cursor: pointer;
-}
-
-/* toggle switch scaling and width */
 .toggle {
   margin: 0;
   height: 1.5em !important;
@@ -137,43 +38,74 @@ button.accent:hover {
   cursor: pointer;
 }
 
+.badge {
+  font-weight: inherit;
+}
+
 .badge.btn-badge {
   line-height: 1.25;
   width: 7em;
 }
 
-/* width for save & cancel buttons */
-.btn-width {
-  width: 10rem !important;
+.form-check {
+  margin: 0;
 }
 
-/* tooltip wrapper */
+.form-check-input, .btn {
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out, background-position 200ms ease-in-out !important;
+}
+
+.accent, .form-check-input:checked {
+  background-color: var(--blue-dark) !important;
+  border-color: var(--blue-dark) !important;
+  color: white !important;
+}
+
+button.accent:hover, .hg-button:hover, .form-check-input:checked:hover {
+  background-color: var(--blue-light) !important;
+  border-color: var(--blue-light) !important;
+  color: white !important;
+}
+
+.hg-button {
+  height: 45px !important;
+  transition: transform 200ms ease-in-out;
+}
+
+.hg-button:hover {
+  transform: scale(1.5);
+  z-index: 1000;
+}
+
+.no-exp:hover {
+  transform: none !important;
+}
+
 .tt {
   position: relative;
   display: inline-block;
 }
 
-/* tooltip */
 .tt .tt-text {
   display: none;
   width: 120px;
   color: white;
-  background-color: #4caf50;
+  background-color: var(--green);
   text-align: center;
   padding: 7px 20px;
   border-radius: 6px;
   left: 110%;
-  transition: 0.2s all;
+  transition: all 200ms ease-in-out;
 }
 
-/* tooltip arrow */
 .tt .tt-text::after {
   content: "";
   position: absolute;
   top: 50%;
   right: 100%;
   margin-top: -5px;
-  border-color: transparent #4caf50 transparent transparent;
+  border-color: transparent var(--green) transparent transparent;
   border-width: 5px;
   border-style: solid;
 }
