@@ -3,9 +3,9 @@
 const getItem = (key) => window.localStorage.getItem(key)
 const setItem = (key, val) => window.localStorage.setItem(key, val)
 
-const displayTooltip = (selector, timeout) => {
-  $(selector).show()
-  setTimeout(() => $(selector).hide(), timeout)
+const notify = (selector) => {
+  $(selector).addClass('notification-show')
+  setTimeout(() => $(selector).removeClass('notification-show'), 4250)
 }
 
 const redirectRel = (path) => location.pathname = path

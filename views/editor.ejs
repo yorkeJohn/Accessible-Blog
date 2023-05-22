@@ -6,13 +6,13 @@
   <main class="p-3 mx-auto">
     <div class="mb-3">
       <label class="form-label text-muted">Title</label>
-      <input id="title" class="input form-control" name="user" type="text" maxlength="30" 
-      autocomplete="off" value="<%= blog.BlogTitle %>">
+      <input id="title" class="input form-control" type="text" 
+      maxlength="30" autocomplete="off" value="<%= blog.BlogTitle %>">
     </div>
     <div class="mb-3">
       <label class="form-label text-muted">Blog</label>
-      <textarea id="text" class="input form-control" name="message" 
-      style="resize:none;" rows="6" autocomplete="off"><%= blog.BlogText %></textarea>
+      <textarea id="text" class="input form-control" style="resize: none;" 
+      rows="6" autocomplete="off"><%= blog.BlogText %></textarea>
     </div>
     <!-- simple keyboard -->
     <div class="mb-3">
@@ -54,18 +54,19 @@
     </div>
     <!-- delete, save, cancel buttons -->
     <div class="mb-3 d-flex align-items-center">
-      <button type="button" class="btn btn-danger btn-width me-2" data-toggle="modal" data-target="#deleteModal">
+      <button type="button" class="btn black shadow btn-width me-2" data-toggle="modal" data-target="#deleteModal">
         <i class="bi bi-trash-fill"></i> Delete blog
       </button>
-      <button type="button" class="btn accent btn-width me-2" data-toggle="modal" data-target="#closeModal">
+      <button type="button" class="btn black shadow btn-width me-2" data-toggle="modal" data-target="#closeModal">
         Close editor
       </button>
-      <button type="button" class="btn accent btn-width" data-toggle="modal" data-target="#saveModal">
+      <button type="button" class="btn black shadow btn-width" data-toggle="modal" data-target="#saveModal">
         Save changes
       </button>
-      <div class="tt ms-3">
-        <span id="tt-save" class="tt-text a-opacity">Changes saved!</span>
-      </div>
+    </div>
+    <div id="save-msg" class="notification text-center">
+      Changes saved ✅
+      <span class="notification-load"></span>
     </div>
     <!-- Confirm save modal -->
     <div class="modal fade" id="saveModal" data-backdrop="static">
@@ -76,8 +77,8 @@
             Are you sure you want to save changes?
           </div>
           <div class="p-2 d-flex justify-content-end modal-footer">
-            <button type="button" class="btn accent" data-dismiss="modal" id="save">Save changes</button>
-            <button type="button" class="btn btn-secondary me-1" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn black" data-dismiss="modal" id="save">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
@@ -91,8 +92,8 @@
             Are you sure you want to close the editor?<br>* Closing the editor will discard any unsaved changes.
           </div>
           <div class="p-2 d-flex justify-content-end modal-footer">
-            <a href="/"><button type="button" class="btn accent">Close editor</button></a>
-            <button type="button" class="btn btn-secondary me-1" data-dismiss="modal">Cancel</button>
+            <a href="/"><button type="button" class="btn black">Close editor</button></a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
@@ -118,14 +119,14 @@
 <script>
 $('#home-link').attr({ 'data-toggle': 'modal', 'data-target': '#closeModal' })
 
-$('#save').click(function () {
+$('#save').click(async function () {
   const title = $("#title").val().trim() || `My Blog`
   $("#title").val(title)
   const text = $("#text").val()
 
-  $.post(window.location.href, { title: title, text: text })
+  await $.post(window.location.href, { title: title, text: text })
 
-  displayTooltip('#tt-save', 2000)
+  notify('#save-msg')
 })
 
 $('#delete').click(async function () {

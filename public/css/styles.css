@@ -7,6 +7,9 @@
   --blue-light: #2a5db0;
   --blue-dark: #224c8f;
   --green: #4caf50;
+  --black-dark: #2b2b2c;
+  --black-light: #3b3b3c;
+  --shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 body {
@@ -25,6 +28,10 @@ a {
 
 a:hover {
   color: inherit;
+}
+
+.btn {
+  box-shadow: none !important;
 }
 
 .btn-width {
@@ -51,6 +58,10 @@ a:hover {
   margin: 0;
 }
 
+.shadow {
+  box-shadow: var(--shadow);
+}
+
 .form-check-input, .btn {
   cursor: pointer;
   transition: background-color 200ms ease-in-out, background-position 200ms ease-in-out !important;
@@ -68,6 +79,18 @@ button.accent:hover, .hg-button:hover, .form-check-input:checked:hover {
   color: white !important;
 }
 
+.black {
+  background-color: var(--black-dark) !important;
+  border-color: var(--black-dark) !important;
+  color: white !important;
+}
+
+button.black:hover {
+  background-color: var(--black-light) !important;
+  border-color: var(--black-light) !important;
+  color: white !important;
+}
+
 .hg-button {
   height: 45px !important;
   transition: transform 200ms ease-in-out;
@@ -82,32 +105,45 @@ button.accent:hover, .hg-button:hover, .form-check-input:checked:hover {
   transform: none !important;
 }
 
-.tt {
-  position: relative;
-  display: inline-block;
+.notification {
+	position: absolute;
+	bottom: 64px;
+	right: 8px;
+	width: 250px;
+	padding: 20px;
+	border-radius: 4px;
+	background-color: var(--black-dark);
+	color: white;
+	box-shadow: var(--shadow);
+	transform: translateY(32px);
+	opacity: 0;
+	visibility: hidden;
+  transition: all 250ms ease-in-out;
 }
 
-.tt .tt-text {
-  display: none;
-  width: 120px;
-  color: white;
-  background-color: var(--green);
-  text-align: center;
-  padding: 7px 20px;
-  border-radius: 6px;
-  left: 110%;
-  transition: all 200ms ease-in-out;
+.notification.notification-show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.tt .tt-text::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -5px;
-  border-color: transparent var(--green) transparent transparent;
-  border-width: 5px;
-  border-style: solid;
+.notification.notification-show .notification-load {
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+	width: calc(100% - 10px);
+	height: 3px;
+	transform: scaleX(0);
+	transform-origin: left;
+	background-color: var(--green);
+	border-radius: inherit;
+	animation: load 4s 0.25s linear forwards;
+}
+
+@keyframes load {
+	to {
+		transform: scaleX(1);
+	}
 }
 
 
