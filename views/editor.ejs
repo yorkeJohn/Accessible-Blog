@@ -28,8 +28,8 @@
               Word Bank
             </div>
             <div class="col d-flex align-items-center justify-content-end">
-              <label class="text-muted me-2" for="del" style="font-size: 0.8em;">
-                Delete&nbsp;Mode
+              <label class="me-2" for="del">
+                <small>Delete Mode</small>
               </label>
               <div class="form-check form-switch">
                 <input id="del" class="form-check-input toggle" type="checkbox" role="switch">
@@ -44,7 +44,9 @@
           <div class="input-group">
             <input id="new-word" class="input form-control" type="text" 
             placeholder="Add a word or phrase to the word bank" autocomplete="off">
-            <button type="button" class="btn accent">Add to word bank</button>
+            <button type="button" class="btn accent">
+              <i class="bi bi-plus-circle-fill"></i> Add to word bank
+            </button>
           </div>
         </div>
         <!--button id="clear" type="button" class="btn btn-danger" style='width:100%;'>Clear Word Bank</button-->
@@ -53,7 +55,7 @@
     <!-- delete, save, cancel buttons -->
     <div class="mb-3 d-flex align-items-center">
       <button type="button" class="btn btn-danger btn-width me-2" data-toggle="modal" data-target="#deleteModal">
-        Delete blog
+        <i class="bi bi-trash-fill"></i> Delete blog
       </button>
       <button type="button" class="btn accent btn-width me-2" data-toggle="modal" data-target="#closeModal">
         Close editor

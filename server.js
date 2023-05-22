@@ -1,8 +1,4 @@
-/**
-* server.js
-* CSCI 2356 Project Group 1
-* @author John Yorke
-*/
+/* server.js */
 
 require('dotenv').config()
 const express = require('express')

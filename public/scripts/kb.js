@@ -1,12 +1,8 @@
-/**
-* kb.js
-* CSCI 2356 Project Group 1
-* @authors John Yorke, Justin Kaiser
-*/
+/* kb.js */
 
 const Keyboard = window.SimpleKeyboard.default;
 
-/* using simple-keyboard via https://virtual-keyboard.js.org */
+/* https://virtual-keyboard.js.org */
 let keyboard = new Keyboard({
   onChange: input => onChange(input),
   onKeyPress: button => onKeyPress(button),

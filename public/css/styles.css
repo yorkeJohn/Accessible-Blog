@@ -1,10 +1,5 @@
-/**
-* my_css.css
-* CSCI 2356 Project Group 1
-* Author: John Yorke
-*/
+/* styles.css */
 
-/* body styles */
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
@@ -149,7 +144,7 @@ button.accent:hover {
 
 /* width for save & cancel buttons */
 .btn-width {
-  width: 8rem !important;
+  width: 10rem !important;
 }
 
 /* tooltip wrapper */

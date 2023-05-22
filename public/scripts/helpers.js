@@ -1,3 +1,5 @@
+/* helpers.js */
+
 const getItem = (key) => window.localStorage.getItem(key)
 const setItem = (key, val) => window.localStorage.setItem(key, val)
 
