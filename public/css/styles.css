@@ -6,9 +6,10 @@
   --app-width: 1000px;
   --blue-light: #2a5db0;
   --blue-dark: #224c8f;
-  --green: #4caf50;
-  --black-dark: #2b2b2c;
-  --black-light: #3b3b3c;
+  --green: #10c04b;
+  --black: #2b2b2c;
+  --grey-dark: #f4f4f4;
+  --grey-light: #fafafa;
   --shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -79,16 +80,13 @@ button.accent:hover, .hg-button:hover, .form-check-input:checked:hover {
   color: white !important;
 }
 
-.black {
-  background-color: var(--black-dark) !important;
-  border-color: var(--black-dark) !important;
-  color: white !important;
+.btn.btn-light {
+  background-color: var(--grey-dark) !important;
 }
 
-button.black:hover {
-  background-color: var(--black-light) !important;
-  border-color: var(--black-light) !important;
-  color: white !important;
+.btn.btn-light:hover {
+  background-color: var(--grey-light) !important;
+  border-color: var(--grey-light) !important;
 }
 
 .hg-button {
@@ -112,8 +110,8 @@ button.black:hover {
 	width: 250px;
 	padding: 20px;
 	border-radius: 4px;
-	background-color: var(--black-dark);
-	color: white;
+	background-color: var(--black);
+  color: white;
 	box-shadow: var(--shadow);
 	transform: translateY(32px);
 	opacity: 0;
